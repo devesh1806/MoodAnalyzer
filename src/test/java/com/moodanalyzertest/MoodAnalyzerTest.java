@@ -1,4 +1,5 @@
 package com.moodanalyzertest;
+import com.moodanalyzer.ExceptionType;
 import com.moodanalyzer.MoodAnalysisException;
 import com.moodanalyzer.MoodAnalyzer;
 
@@ -56,7 +57,7 @@ public class MoodAnalyzerTest {
 			result = moodAnalyzer.analyzeMood();
 			
 		} catch (MoodAnalysisException e) {
-			Assert.assertEquals("Please enter proper mood.", e.getMessage());
+			Assert.assertEquals(ExceptionType.NOT_NULL,e.exceptionType);
 		}
 		
 	}
@@ -69,7 +70,7 @@ public class MoodAnalyzerTest {
 		try {
 			result = moodAnalyzer.analyzeMood();
 		} catch (MoodAnalysisException e) {
-			Assert.assertEquals("Message is Empty.", e.getMessage());
+			Assert.assertEquals(ExceptionType.NOT_EMPTY,e.exceptionType);
 		}
 		
 	}
